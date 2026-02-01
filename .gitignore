@@ -2,4 +2,6 @@
 *.dSYM/
 .vscode/
 
-
+C++/Main
+C/BMI
+C/Main
