@@ -1,0 +1,54 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "RUN: C",
+      "type": "shell",
+      "command": "bash",
+      "args": [
+        "-lc",
+        "cd \"${fileDirname}\" && clang -g \"${fileBasename}\" -o \"${fileBasenameNoExtension}\" && \"./${fileBasenameNoExtension}\""
+      ],
+      "problemMatcher": [],
+      "group": { "kind": "build", "isDefault": false },
+      "presentation": { "reveal": "always", "panel": "shared", "clear": true }
+    },
+    {
+      "label": "RUN: C++",
+      "type": "shell",
+      "command": "bash",
+      "args": [
+        "-lc",
+        "cd \"${fileDirname}\" && clang++ -std=c++17 -g \"${fileBasename}\" -o \"${fileBasenameNoExtension}\" && \"./${fileBasenameNoExtension}\""
+      ],
+      "problemMatcher": [],
+      "group": { "kind": "build", "isDefault": false },
+      "presentation": { "reveal": "always", "panel": "shared", "clear": true }
+    },
+    {
+      "label": "RUN: Python",
+      "type": "shell",
+      "command": "bash",
+      "args": [
+        "-lc",
+        "cd \"${fileDirname}\" && python3 \"${fileBasename}\""
+      ],
+      "problemMatcher": [],
+      "group": { "kind": "build", "isDefault": false },
+      "presentation": { "reveal": "always", "panel": "shared", "clear": true }
+    },
+
+    {
+      "label": "DEFAULT: Run current file (auto C/C++/Py)",
+      "type": "shell",
+      "command": "bash",
+      "args": [
+        "-lc",
+        "cd \"${fileDirname}\" && ext=\"${fileExtname}\"; base=\"${fileBasename}\"; out=\"${fileBasenameNoExtension}\"; if [ \"$ext\" = \".c\" ]; then clang -g \"$base\" -o \"$out\" && \"./$out\"; elif [ \"$ext\" = \".cpp\" ] || [ \"$ext\" = \".cc\" ] || [ \"$ext\" = \".cxx\" ]; then clang++ -std=c++17 -g \"$base\" -o \"$out\" && \"./$out\"; elif [ \"$ext\" = \".py\" ]; then python3 \"$base\"; else echo \"Unsupported file: $base\"; fi"
+      ],
+      "problemMatcher": [],
+      "group": { "kind": "build", "isDefault": true },
+      "presentation": { "reveal": "always", "panel": "shared", "clear": true }
+    }
+  ]
+}
