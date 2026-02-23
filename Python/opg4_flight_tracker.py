@@ -12,3 +12,7 @@ print(distance) """
 
 # Prints the flights information in one sentence
 print(f"Flight {flight_n}'s to {destination} has a distance of {distance} km ")
+""" print(flight_n)
+print(destination)
+print(distance)
+ """
